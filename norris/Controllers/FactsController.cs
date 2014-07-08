@@ -17,9 +17,15 @@ namespace norris.Controllers
         // GET: Facts
         public ActionResult Index()
         {
-            return View(db.Facts.ToList());
-        }
 
+            return View(db.Facts.ToList());
+            //return View(db.Facts.OrderBy(r => Guid.NewGuid()).Take(1));
+        }
+        public ActionResult Getone()
+        {
+
+            return Json(db.Facts.OrderBy(r => Guid.NewGuid()).Take(1), JsonRequestBehavior.AllowGet);
+        }
         // GET: Facts/Details/5
         public ActionResult Details(int? id)
         {

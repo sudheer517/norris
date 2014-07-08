@@ -2,12 +2,19 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>Chuck norris facts</h1>
-    <p class="lead">Best chuck norris facts.</p>
-    <p><a href="#" class="btn btn-primary btn-lg">Show more &raquo;</a></p>
+<div style="padding-top:25%;" id="norris_container" ng-app="norrisFacts">
+
+    <div ng-controller="FactController as factCtrl">
+        <blockquote>
+            <p style="font-size:42px;" ng-model="factCtrl.fact.Text">{{factCtrl.fact.Text}}</p>
+            <footer ng-model="factCtrl.fact.Author"> - {{factCtrl.fact.Author}}</footer>
+        </blockquote>
+        <p><a href class="btn btn-primary btn-lg" ng-click="factCtrl.nextFact()">Show more &raquo;</a></p>
+    </div>
+    
 </div>
 
 <div class="row">
    
 </div>
+

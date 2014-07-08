@@ -6,6 +6,11 @@
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/Scripts/angular.min.js")
+    @Scripts.Render("~/Scripts/app/app.js")
+    @RenderSection("scripts", required: false)
 
 </head>
 <body>
@@ -28,16 +33,21 @@
             </div>
         </div>
     </div>
-    <div class="container body-content">
+    <div class="container body-content" id="mainc">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    </div>
+    <footer><center>
+    <p>&copy; @DateTime.Now.Year - Quantium India Product Team</p>
+    </center></footer>
+
 </body>
 </html>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var height = window.screen.availHeight - 200;
+        var str = "min-height: " + height + "px;";
+        $('#mainc').attr('style', str);
+    });
+</script>
