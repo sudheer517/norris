@@ -10,6 +10,7 @@ using norris.Models;
 
 namespace norris.Controllers
 {
+    [RequireHttps]
     public class FactsController : Controller
     {
         private FactContext db = new FactContext();
