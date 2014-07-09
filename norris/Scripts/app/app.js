@@ -14,6 +14,7 @@ app.controller('FactController', ['$http', function ($http) {
             fact.Text = data[0].Text;
             fact.Author = data[0].Author;
             fact.Date = data[0].Date;
+            fact.Views = data[0].Views;
         });
         //console.log(fact);
         this.fact = fact;

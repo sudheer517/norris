@@ -13,7 +13,7 @@ namespace norris.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201407080629055_InitialCreate"; }
+            get { return "201407090530194_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source

@@ -23,9 +23,12 @@ namespace norris.Controllers
         }
         public ActionResult Getone()
         {
-
-            return Json(db.Facts.OrderBy(r => Guid.NewGuid()).Take(1), JsonRequestBehavior.AllowGet);
+            var factr = db.Facts.OrderBy(r => Guid.NewGuid()).Take(1);
+             db.Facts.Find(factr.First().ID).Views+=1;
+             db.SaveChanges();
+            return Json(factr, JsonRequestBehavior.AllowGet);
         }
+
         // GET: Facts/Details/5
         public ActionResult Details(int? id)
         {

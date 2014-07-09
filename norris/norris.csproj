@@ -164,15 +164,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201407080629055_InitialCreate.cs">
-      <SubType>Code</SubType>
+    <Compile Include="Migrations\201407090530194_InitialCreate.cs" />
+    <Compile Include="Migrations\201407090530194_InitialCreate.Designer.cs">
+      <DependentUpon>201407090530194_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201407080629055_InitialCreate.Designer.cs">
-      <DependentUpon>201407080629055_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Facts.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -218,6 +214,8 @@
     <Content Include="Scripts\angular-animate.min.js.map" />
     <Content Include="Scripts\angular.min.js.map" />
     <None Include="Properties\PublishProfiles\norris %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\norris %283%29.pubxml" />
+    <None Include="Properties\PublishProfiles\norris %284%29.pubxml" />
     <None Include="Properties\PublishProfiles\Norris.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_af-na.js" />
@@ -558,8 +556,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201407080629055_InitialCreate.resx">
-      <DependentUpon>201407080629055_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201407090530194_InitialCreate.resx">
+      <DependentUpon>201407090530194_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
