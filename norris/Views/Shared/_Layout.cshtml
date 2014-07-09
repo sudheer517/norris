@@ -10,6 +10,8 @@
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/Scripts/angular.min.js")
     @Scripts.Render("~/Scripts/app/app.js")
+    @Scripts.Render("http://code.highcharts.com/highcharts.js");
+    @Scripts.Render("https://rawgit.com/pablojim/highcharts-ng/master/src/highcharts-ng.js");
     @RenderSection("scripts", required: false)
 
 </head>
@@ -33,6 +35,7 @@
             </div>
         </div>
     </div>
+
     <div class="container body-content" id="mainc">
         @RenderBody()
         <hr />
