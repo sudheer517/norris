@@ -15,3 +15,8 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.giflink.preloaded {
+    transition: color 300ms;
+    color: #ff0000;
+}

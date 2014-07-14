@@ -16,10 +16,17 @@
             <div class="col-md-4">
                 <highchart id="chart1" config="chartConfig" style="height:200px;"></highchart>
             </div>
-            <p><a href class="btn btn-primary btn-lg" ng-click="factCtrl.nextFact()">Show more &raquo;</a></p>
+            <p><a href class="btn btn-primary btn-lg" ng-click="factCtrl.nextFact()" >Show more &raquo;</a></p>
             </div>
-           
+      
         </div>
     </div>
     
 
+<script>
+window.onload = function() {
+    // Add GifLinks to all anchor tags on the page!
+    var elements = document.querySelectorAll('.giflink-to-be');
+    GifLinks(elements);
+}
+</script>
