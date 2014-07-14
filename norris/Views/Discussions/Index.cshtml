@@ -1,11 +1,11 @@
 ﻿@model IEnumerable<norris.Models.Discussion>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Discuncussion Forums";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Discuncussion Forums</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -33,7 +33,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Title)
+            @Html.ActionLink(Convert.ToString(item.Title) , "Details", new { id = item.ID }) 
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Text)
