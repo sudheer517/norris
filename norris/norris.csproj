@@ -159,6 +159,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\DiscussionsController.cs" />
     <Compile Include="Controllers\FactsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -167,6 +168,14 @@
     <Compile Include="Migrations\201407090530194_InitialCreate.cs" />
     <Compile Include="Migrations\201407090530194_InitialCreate.Designer.cs">
       <DependentUpon>201407090530194_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201407140949069_discussions.cs" />
+    <Compile Include="Migrations\201407140949069_discussions.Designer.cs">
+      <DependentUpon>201407140949069_discussions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201407140953460_discussionsamecontext.cs" />
+    <Compile Include="Migrations\201407140953460_discussionsamecontext.Designer.cs">
+      <DependentUpon>201407140953460_discussionsamecontext.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -545,6 +554,11 @@
     <Content Include="Views\Facts\Details.cshtml" />
     <Content Include="Views\Facts\Edit.cshtml" />
     <Content Include="Views\Facts\Index.cshtml" />
+    <Content Include="Views\Discussions\Create.cshtml" />
+    <Content Include="Views\Discussions\Delete.cshtml" />
+    <Content Include="Views\Discussions\Details.cshtml" />
+    <Content Include="Views\Discussions\Edit.cshtml" />
+    <Content Include="Views\Discussions\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -559,6 +573,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201407090530194_InitialCreate.resx">
       <DependentUpon>201407090530194_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201407140949069_discussions.resx">
+      <DependentUpon>201407140949069_discussions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201407140953460_discussionsamecontext.resx">
+      <DependentUpon>201407140953460_discussionsamecontext.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
