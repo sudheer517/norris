@@ -22,6 +22,10 @@ namespace norris.Controllers
             return View(db.Facts.ToList());
             //return View(db.Facts.OrderBy(r => Guid.NewGuid()).Take(1));
         }
+        //public ActionResult GetById()
+        //{
+        //    return Json(db.Facts.Find(Convert.ToInt32(Request["FactId"])), JsonRequestBehavior.AllowGet);
+        //}
         public ActionResult Getone()
         {
 

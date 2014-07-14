@@ -6,10 +6,20 @@
 
     <div ng-controller="FactController as factCtrl">
         <blockquote>
-            <p style="font-size:42px;" ng-model="factCtrl.fact.Text">{{factCtrl.fact.Text}}</p>
-            <footer ng-model="factCtrl.fact.Author"> - {{factCtrl.fact.Author}}</footer>
+            <p style="font-size:42px;">{{factCtrl.fact.Text}}</p>
+            <footer> - {{factCtrl.fact.Author}}</footer>
         </blockquote>
-        <p><a href class="btn btn-primary btn-lg" ng-click="factCtrl.nextFact()">Show more &raquo;</a></p>
+        <div id="comments" ng-repeat="comment in factCtrl.comments">
+            <blockquote>
+                <p style="font-size:24px;" >{{comment.Text}}</p>
+                <footer> - {{comment.USER_EMAIL}}</footer>
+            </blockquote>
+        </div>
+        <form ng-submit="factCtrl.addnew()">
+            <input type="text" id="commentText" ng-model="factCtrl.commentText"/>
+            <input type="submit" class="btn btn-small"/>
+        </form>
+        <p><a href="" class="btn btn-primary btn-lg" ng-click="factCtrl.nextFact()">Show more &raquo;</a></p>
     </div>
     
 </div>

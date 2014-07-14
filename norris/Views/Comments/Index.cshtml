@@ -1,0 +1,45 @@
+﻿@model IEnumerable<norris.Models.Comment>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Text)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FACT_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.USER_EMAIL)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Text)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FACT_ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.USER_EMAIL)
+        </td>
+    </tr>
+}
+
+</table>

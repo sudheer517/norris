@@ -159,6 +159,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\comment.cs" />
+    <Compile Include="Controllers\CommentsController.cs" />
+    <Compile Include="Controllers\DefaultConnection.cs" />
     <Compile Include="Controllers\FactsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -169,6 +172,14 @@
     </Compile>
     <Compile Include="Migrations\201407080629055_InitialCreate.Designer.cs">
       <DependentUpon>201407080629055_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201407111136213_changed_comments_context.cs" />
+    <Compile Include="Migrations\201407111136213_changed_comments_context.Designer.cs">
+      <DependentUpon>201407111136213_changed_comments_context.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201407111210439_changed_comments_context1.cs" />
+    <Compile Include="Migrations\201407111210439_changed_comments_context1.Designer.cs">
+      <DependentUpon>201407111210439_changed_comments_context1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs">
       <SubType>Code</SubType>
@@ -546,6 +557,7 @@
     <Content Include="Views\Facts\Details.cshtml" />
     <Content Include="Views\Facts\Edit.cshtml" />
     <Content Include="Views\Facts\Index.cshtml" />
+    <Content Include="Views\Comments\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -560,6 +572,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201407080629055_InitialCreate.resx">
       <DependentUpon>201407080629055_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201407111136213_changed_comments_context.resx">
+      <DependentUpon>201407111136213_changed_comments_context.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201407111210439_changed_comments_context1.resx">
+      <DependentUpon>201407111210439_changed_comments_context1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

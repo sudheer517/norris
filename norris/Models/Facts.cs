@@ -11,9 +11,20 @@ namespace norris.Models
         public DateTime Date { get; set; }
 
     }
+    public class Comment
+    {
+        public int ID { get; set; }
+        public string Text { get; set; }
+        public string USER_EMAIL { get; set; }
+        public int FACT_ID { get; set; }
+        public DateTime Date { get; set; }
+
+    }
 
     public class FactContext : DbContext
     {
         public DbSet<Fact> Facts { get; set; }
+        public DbSet<Comment> Comments { get; set; }
     }
+
 }
