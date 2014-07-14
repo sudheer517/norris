@@ -7,7 +7,7 @@
     <div ng-controller="FactController as factCtrl">
         <div class="row">
             <div class="col-md-8">
-        <blockquote>
+                <blockquote>
             <p style="font-size:42px;">{{factCtrl.fact.Text}}</p>
             <footer> - {{factCtrl.fact.Author}}</footer>
         </blockquote>
@@ -15,8 +15,8 @@
             <blockquote>
                 <p style="font-size:24px;" >{{comment.Text}}</p>
                 <footer> - {{comment.USER_EMAIL}}</footer>
-        </blockquote>
-        </div>
+                </blockquote>
+            </div>
         <form ng-submit="factCtrl.addnew()">
             <input type="text" id="commentText" ng-model="factCtrl.commentText"/>
             <input type="submit" class="btn btn-small"/>
@@ -26,9 +26,16 @@
             <div class="col-md-4">
                 <highchart id="chart1" config="chartConfig" style="height:200px;"></highchart>
             </div>
+            </div>
+           
+        </div>
     </div>
     
-</div>
-    </div>
 
-
+<script>
+window.onload = function() {
+    // Add GifLinks to all anchor tags on the page!
+    var elements = document.querySelectorAll('.giflink-to-be');
+    GifLinks(elements);
+}
+</script>
