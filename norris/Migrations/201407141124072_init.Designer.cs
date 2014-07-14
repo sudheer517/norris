@@ -7,13 +7,13 @@ namespace norris.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class changed_comments_context : IMigrationMetadata
+    public sealed partial class init : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(changed_comments_context));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(init));
         
         string IMigrationMetadata.Id
         {
-            get { return "201407111136213_changed_comments_context"; }
+            get { return "201407141124072_init"; }
         }
         
         string IMigrationMetadata.Source

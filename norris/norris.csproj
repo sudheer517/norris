@@ -16,7 +16,7 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <IISExpressSSLPort />
+    <IISExpressSSLPort>44300</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -167,24 +167,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201407090530194_InitialCreate.cs" />
-    <Compile Include="Migrations\201407090530194_InitialCreate.Designer.cs">
-      <DependentUpon>201407090530194_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201407141124072_init.cs" />
+    <Compile Include="Migrations\201407141124072_init.Designer.cs">
+      <DependentUpon>201407141124072_init.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201407080629055_InitialCreate.Designer.cs">
-      <DependentUpon>201407080629055_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201407111136213_changed_comments_context.cs" />
-    <Compile Include="Migrations\201407111136213_changed_comments_context.Designer.cs">
-      <DependentUpon>201407111136213_changed_comments_context.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201407111210439_changed_comments_context1.cs" />
-    <Compile Include="Migrations\201407111210439_changed_comments_context1.Designer.cs">
-      <DependentUpon>201407111210439_changed_comments_context1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Facts.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -573,14 +560,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201407090530194_InitialCreate.resx">
-      <DependentUpon>201407090530194_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201407111136213_changed_comments_context.resx">
-      <DependentUpon>201407111136213_changed_comments_context.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201407111210439_changed_comments_context1.resx">
-      <DependentUpon>201407111210439_changed_comments_context1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201407141124072_init.resx">
+      <DependentUpon>201407141124072_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
@@ -599,9 +580,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>54203</DevelopmentServerPort>
+          <DevelopmentServerPort>44300</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:54203/</IISUrl>
+          <IISUrl>https://localhost:44300/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
