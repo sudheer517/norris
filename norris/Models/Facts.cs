@@ -26,6 +26,7 @@ namespace norris.Models
     public class DiscussionPost
     {
         public int ID { get; set; }
+        public int DiscussionID { get; set; }
         public string Text { get; set; }
         public string Author { get; set; }
         public int Votes { get; set; }

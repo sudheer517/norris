@@ -1,17 +1,19 @@
-﻿@model norris.Models.Discussion
+﻿@model norris.Models.DiscussionPost
 
 @{
-    ViewBag.Title = "fORUMS";
+    ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2> @Html.DisplayFor(model => model.Title)</h2>
+<h2>Details</h2>
 
 <div>
-    @*<h4>Discussion</h4>*@
+    <h4>DiscussionPost</h4>
     <hr />
     <dl class="dl-horizontal">
-
+        <dt>
+            @Html.DisplayNameFor(model => model.Text)
+        </dt>
 
         <dd>
             @Html.DisplayFor(model => model.Text)
@@ -25,26 +27,24 @@
             @Html.DisplayFor(model => model.Author)
         </dd>
 
-        @*<dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.Votes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Votes)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.Date)
-        </dt>*@
+        </dt>
 
         <dd>
             @Html.DisplayFor(model => model.Date)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Views)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Views)
-        </dd>
-
     </dl>
 </div>
-
-<div ng-controller="DiscussionController">{{posts}}</div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
     @Html.ActionLink("Back to List", "Index")
