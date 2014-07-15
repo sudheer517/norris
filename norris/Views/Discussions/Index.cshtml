@@ -1,5 +1,6 @@
 ﻿@model IEnumerable<norris.Models.Discussion>
 
+
 @{
     ViewBag.Title = "Discuncussion Forums";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -14,9 +15,6 @@
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Text)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Author)
@@ -34,9 +32,6 @@
     <tr>
         <td>
             @Html.ActionLink(Convert.ToString(item.Title) , "Details", new { id = item.ID }) 
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Text)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Author)

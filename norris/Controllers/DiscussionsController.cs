@@ -32,6 +32,8 @@ namespace norris.Controllers
             {
                 return HttpNotFound();
             }
+            db.Discussions.Find(discussion.ID).Views += 1;
+            db.SaveChanges();
             return View(discussion);
         }
 

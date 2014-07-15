@@ -177,6 +177,10 @@
     <Compile Include="Migrations\201407140953460_discussionsamecontext.Designer.cs">
       <DependentUpon>201407140953460_discussionsamecontext.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201407150932356_discussionposts.cs" />
+    <Compile Include="Migrations\201407150932356_discussionposts.Designer.cs">
+      <DependentUpon>201407150932356_discussionposts.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Facts.cs" />
@@ -579,6 +583,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201407140953460_discussionsamecontext.resx">
       <DependentUpon>201407140953460_discussionsamecontext.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201407150932356_discussionposts.resx">
+      <DependentUpon>201407150932356_discussionposts.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
