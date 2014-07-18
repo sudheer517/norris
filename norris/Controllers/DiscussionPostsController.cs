@@ -7,11 +7,14 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using norris.Models;
+using System.Web.Helpers;
 
 namespace norris.Controllers
 {
+
     public class DiscussionPostsController : Controller
     {
+
         private FactContext db = new FactContext();
 
         // GET: DiscussionPosts
@@ -54,8 +57,8 @@ namespace norris.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Text,Author,Votes,Date")] DiscussionPost discussionPost)
+        [AllowAnonymous]
+        public ActionResult Create([Bind(Include = "DiscussionID,Text,Author,Votes,Date")] DiscussionPost discussionPost)
         {
             if (ModelState.IsValid)
             {

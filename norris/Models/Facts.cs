@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
 
 namespace norris.Models
@@ -26,8 +27,11 @@ namespace norris.Models
     public class DiscussionPost
     {
         public int ID { get; set; }
+        [Required]
         public int DiscussionID { get; set; }
+        [Required]
         public string Text { get; set; }
+        [Required]
         public string Author { get; set; }
         public int Votes { get; set; }
         public DateTime Date { get; set; }

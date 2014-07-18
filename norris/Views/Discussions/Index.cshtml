@@ -4,7 +4,14 @@
     ViewBag.Title = "Discuncussion Forums";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+@functions{
+    public string GetAntiForgeryToken()
+    {
+        string cookieToken, formToken;
+        AntiForgery.GetTokens(null, out cookieToken, out formToken);
+        return cookieToken + ":" + formToken;
+    }
+}
 <h2>Discuncussion Forums</h2>
 
 <p>
@@ -12,7 +19,8 @@
 </p>
 <div ng-app="norrisFacts">
 <div ng-controller="DiscussionController as discCtrl" >
-    Posts:
+
+    <button ng-click="discCtrl.switch()" class="btn btn-small">Go Back</button>
     <table class="table" ng-show="discCtrl.flag">
         <tr><th>Title</th>
             <th>Author</th>
@@ -28,10 +36,21 @@
     <div class="details" ng-hide="discCtrl.flag">
         <h1>{{discCtrl.selected_discussion.Title}}</h1>
         <p>{{discCtrl.selected_discussion.Text}}</p>
-        <p>- {{discCtrl.selected_discussion.Author}}</p>
+        <p><b>{{discCtrl.selected_discussion.Author}}</b></p>
          <br />
-        
-        <button ng-click="discCtrl.switch()" class="btn btn-small">Go Back</button>
-    </div>
+        <b>Replies:</b>
+        <div ng-repeat="post in discCtrl.posts">
+            <p>{{post.Text}}</p>
+            <p><b>{{post.Author}}</b></p>
+        </div>
+        <form ng-submit="discCtrl.addpost()" novalidate>
+                <input id="antiForgeryToken" data-ng-model="antiForgeryToken" type="hidden" data-ng-init="antiForgeryToken='@GetAntiForgeryToken()'" />   
+
+                Text:<input type="text" id="Text" ng-model="discCtrl.formAddPost.Text" /><br/>
+                Author:<input type="text" id="Author" ng-model="discCtrl.formAddPost.Author" />
+            <hr/>
+                <input type="submit" class="btn btn-small" />
+            </form>
+</div>
 </div>
 </div>
