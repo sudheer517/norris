@@ -20,6 +20,7 @@ namespace norris.Models
         public string Author { get; set; }
         public DateTime Date { get; set; }
         public int Views { get; set; }
+    }
     public class Comment
     {
         public int ID { get; set; }
@@ -30,7 +31,6 @@ namespace norris.Models
 
     }
 
-    }
     public class FactContext : DbContext
     {
         public DbSet<Fact> Facts { get; set; }

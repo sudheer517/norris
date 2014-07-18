@@ -20,6 +20,19 @@ namespace norris.Migrations
                 .PrimaryKey(t => t.ID);
             
             CreateTable(
+                "dbo.Discussions",
+                c => new
+                    {
+                        ID = c.Int(nullable: false, identity: true),
+                        Title = c.String(),
+                        Text = c.String(),
+                        Author = c.String(),
+                        Date = c.DateTime(nullable: false),
+                        Views = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.ID);
+            
+            CreateTable(
                 "dbo.Facts",
                 c => new
                     {
@@ -36,6 +49,7 @@ namespace norris.Migrations
         public override void Down()
         {
             DropTable("dbo.Facts");
+            DropTable("dbo.Discussions");
             DropTable("dbo.Comments");
         }
     }
