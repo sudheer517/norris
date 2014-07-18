@@ -1,58 +1,56 @@
-﻿@model IEnumerable<norris.Models.Discussion>
+﻿
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Discuncussion Forums";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>Index</h2>
+@functions{
+    public string GetAntiForgeryToken()
+    {
+        string cookieToken, formToken;
+        AntiForgery.GetTokens(null, out cookieToken, out formToken);
+        return cookieToken + ":" + formToken;
+    }
+}
+<h2>Discuncussion Forums</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Text)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Author)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Date)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Views)
-        </th>
-        <th></th>
-    </tr>
+<div ng-app="norrisFacts">
+<div ng-controller="DiscussionController as discCtrl" >
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Text)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Author)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Date)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Views)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
+    <button ng-click="discCtrl.switch()" class="btn btn-small">Go Back</button>
+    <table class="table" ng-show="discCtrl.flag">
+        <tr><th>Title</th>
+            <th>Author</th>
+            <th>Views</th>
+            <th>Votes</th></tr>
+        <tr ng-repeat="discussion in discCtrl.discussions">
+            <td><b><a href ng-click="discCtrl.getdiscussion(discussion.ID)">{{discussion.Title}}</a></b></td>
+            <td>{{discussion.Author}}</td>
+            <td>{{discussion.Views}}</td>
+            <td>{{discussion.Votes}}</td>
+        </tr>
+    </table>
+    <div class="details" ng-hide="discCtrl.flag">
+        <h1>{{discCtrl.selected_discussion.Title}}</h1>
+        <p>{{discCtrl.selected_discussion.Text}}</p>
+        <p><b>{{discCtrl.selected_discussion.Author}}</b></p>
+         <br />
+        <b>Replies:</b>
+        <div ng-repeat="post in discCtrl.posts">
+            <p>{{post.Text}}</p>
+            <p><b>{{post.Author}}</b></p>
+        </div>
+        <form ng-submit="discCtrl.addpost()" novalidate>
+                <input id="antiForgeryToken" data-ng-model="antiForgeryToken" type="hidden" data-ng-init="antiForgeryToken='@GetAntiForgeryToken()'" />   
 
-</table>
+                Text:<input type="text" id="Text" ng-model="discCtrl.formAddPost.Text" /><br/>
+                Author:<input type="text" id="Author" ng-model="discCtrl.formAddPost.Author" />
+            <hr/>
+                <input type="submit" class="btn btn-small" />
+            </form>
+</div>
+</div>
+</div>

@@ -7,38 +7,31 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using norris.Models;
+using System.Web.Helpers;
 
 namespace norris.Controllers
 {
-    public class DiscussionsController : Controller
+
+    public class DiscussionPostsController : Controller
     {
+
         private FactContext db = new FactContext();
 
-        // GET: Discussions
+        // GET: DiscussionPosts
         public ActionResult Index()
         {
-            return View();
+            return View(db.DiscussionPosts.ToList());
         }
-        public ActionResult GetAllDiscussions()
-        {
-            return Json(db.Discussions.ToList(), JsonRequestBehavior.AllowGet);
-        }
-        // GET: Discussions/Details/5
 
-        public ActionResult GetDiscussion(int? id)
+        // GET: DiscussionPosts/Details/5
+        public ActionResult GetPosts(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Discussion discussion = db.Discussions.Find(id);
-            if (discussion == null)
-            {
-                return HttpNotFound();
-            }
-            db.Discussions.Find(discussion.ID).Views += 1;
-            db.SaveChanges();
-            return Json(discussion, JsonRequestBehavior.AllowGet);
+            return Json(db.DiscussionPosts.Where(x=> x.DiscussionID==id), JsonRequestBehavior.AllowGet);
+            //return View(db.DiscussionPosts.Where(ID=id));
         }
         public ActionResult Details(int? id)
         {
@@ -46,92 +39,90 @@ namespace norris.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Discussion discussion = db.Discussions.Find(id);
-            if (discussion == null)
+            DiscussionPost discussionPost = db.DiscussionPosts.Find(id);
+            if (discussionPost == null)
             {
                 return HttpNotFound();
             }
-            db.Discussions.Find(discussion.ID).Views += 1;
-            db.SaveChanges();
-            return View(discussion);
+            return View(discussionPost);
         }
 
-        // GET: Discussions/Create
+        // GET: DiscussionPosts/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Discussions/Create
+        // POST: DiscussionPosts/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Title,Text,Author,Date,Views")] Discussion discussion)
+        [AllowAnonymous]
+        public ActionResult Create([Bind(Include = "DiscussionID,Text,Author,Votes,Date")] DiscussionPost discussionPost)
         {
             if (ModelState.IsValid)
             {
-                db.Discussions.Add(discussion);
+                db.DiscussionPosts.Add(discussionPost);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(discussion);
+            return View(discussionPost);
         }
 
-        // GET: Discussions/Edit/5
+        // GET: DiscussionPosts/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Discussion discussion = db.Discussions.Find(id);
-            if (discussion == null)
+            DiscussionPost discussionPost = db.DiscussionPosts.Find(id);
+            if (discussionPost == null)
             {
                 return HttpNotFound();
             }
-            return View(discussion);
+            return View(discussionPost);
         }
 
-        // POST: Discussions/Edit/5
+        // POST: DiscussionPosts/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Title,Text,Author,Date,Views")] Discussion discussion)
+        public ActionResult Edit([Bind(Include = "ID,Text,Author,Votes,Date")] DiscussionPost discussionPost)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(discussion).State = EntityState.Modified;
+                db.Entry(discussionPost).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(discussion);
+            return View(discussionPost);
         }
 
-        // GET: Discussions/Delete/5
+        // GET: DiscussionPosts/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Discussion discussion = db.Discussions.Find(id);
-            if (discussion == null)
+            DiscussionPost discussionPost = db.DiscussionPosts.Find(id);
+            if (discussionPost == null)
             {
                 return HttpNotFound();
             }
-            return View(discussion);
+            return View(discussionPost);
         }
 
-        // POST: Discussions/Delete/5
+        // POST: DiscussionPosts/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Discussion discussion = db.Discussions.Find(id);
-            db.Discussions.Remove(discussion);
+            DiscussionPost discussionPost = db.DiscussionPosts.Find(id);
+            db.DiscussionPosts.Remove(discussionPost);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
