@@ -30,9 +30,7 @@ namespace norris.Models
         public string USER_EMAIL { get; set; }
         public int FACT_ID { get; set; }
         public DateTime Date { get; set; }
-
     }
-
     public class DiscussionPost
     {
         public int ID { get; set; }
@@ -44,7 +42,6 @@ namespace norris.Models
         public string Author { get; set; }
         public int Votes { get; set; }
         public DateTime Date { get; set; }
-
     }
     public class FactContext : DbContext
     {

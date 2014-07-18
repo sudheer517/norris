@@ -20,6 +20,19 @@ namespace norris.Migrations
                 .PrimaryKey(t => t.ID);
             
             CreateTable(
+                "dbo.DiscussionPosts",
+                c => new
+                    {
+                        ID = c.Int(nullable: false, identity: true),
+                        DiscussionID = c.Int(nullable: false),
+                        Text = c.String(nullable: false),
+                        Author = c.String(nullable: false),
+                        Votes = c.Int(nullable: false),
+                        Date = c.DateTime(nullable: false),
+                    })
+                .PrimaryKey(t => t.ID);
+            
+            CreateTable(
                 "dbo.Discussions",
                 c => new
                     {
@@ -28,6 +41,7 @@ namespace norris.Migrations
                         Text = c.String(),
                         Author = c.String(),
                         Date = c.DateTime(nullable: false),
+                        Votes = c.Int(nullable: false),
                         Views = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.ID);
@@ -50,6 +64,7 @@ namespace norris.Migrations
         {
             DropTable("dbo.Facts");
             DropTable("dbo.Discussions");
+            DropTable("dbo.DiscussionPosts");
             DropTable("dbo.Comments");
         }
     }

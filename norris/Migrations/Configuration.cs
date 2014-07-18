@@ -9,7 +9,7 @@ namespace norris.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
         }
 
         protected override void Seed(norris.Models.FactContext context)
