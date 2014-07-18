@@ -7,7 +7,16 @@
     <div ng-controller="FactController as factCtrl">
         <blockquote>
             <p style="font-size:42px;" ng-model="factCtrl.fact.Text">{{factCtrl.fact.Text}}</p>
-            <footer ng-model="factCtrl.fact.Author"> - {{factCtrl.fact.Author}}</footer>
+            <footer ng-model="factCtrl.fact.Author"> - {{factCtrl.fact.Author}}
+                <div> 
+                    <button class="btn btn-success" ng-click="factCtrl.plusvote()">
+                        <span class="glyphicon gly glyphicon-thumbs-up"></span> {{factCtrl.fact.UpVote}}
+                    </button>
+                    <button class="btn btn-danger" ng-click="factCtrl.negvote()">
+                        <span class="glyphicon glyphicon-thumbs-down"></span> {{factCtrl.fact.DownVote}}
+                    </button>
+                </div>
+            </footer>
         </blockquote>
         <p><a href class="btn btn-primary btn-lg" ng-click="factCtrl.nextFact()">Show more &raquo;</a></p>
     </div>

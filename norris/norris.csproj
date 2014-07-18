@@ -170,6 +170,14 @@
     <Compile Include="Migrations\201407080629055_InitialCreate.Designer.cs">
       <DependentUpon>201407080629055_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201407090955340_Votes.cs" />
+    <Compile Include="Migrations\201407090955340_Votes.Designer.cs">
+      <DependentUpon>201407090955340_Votes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201407091010308_vote_test.cs" />
+    <Compile Include="Migrations\201407091010308_vote_test.Designer.cs">
+      <DependentUpon>201407091010308_vote_test.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -549,6 +557,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -560,6 +569,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201407080629055_InitialCreate.resx">
       <DependentUpon>201407080629055_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201407090955340_Votes.resx">
+      <DependentUpon>201407090955340_Votes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201407091010308_vote_test.resx">
+      <DependentUpon>201407091010308_vote_test.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

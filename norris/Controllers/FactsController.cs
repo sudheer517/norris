@@ -22,6 +22,36 @@ namespace norris.Controllers
             return View(db.Facts.ToList());
             //return View(db.Facts.OrderBy(r => Guid.NewGuid()).Take(1));
         }
+        public ActionResult update_upvote(int? id)
+        {
+            if(id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Fact fact = db.Facts.Find(id);
+            if (fact == null)
+            {
+                return HttpNotFound();
+            }
+            fact.UpVote += 1;
+            db.SaveChanges();
+            return Json(id, JsonRequestBehavior.AllowGet);
+        }
+        public ActionResult update_downvote(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Fact fact = db.Facts.Find(id);
+            if (fact == null)
+            {
+                return HttpNotFound();
+            }
+            fact.DownVote += 1;
+            db.SaveChanges();
+            return Json(id, JsonRequestBehavior.AllowGet);
+        }
         public ActionResult Getone()
         {
 
@@ -53,7 +83,7 @@ namespace norris.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Text,Author,Date")] Fact fact)
+        public ActionResult Create([Bind(Include = "ID,Text,Author,Date,UpVote,Downvote")] Fact fact)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +115,7 @@ namespace norris.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Text,Author,Date")] Fact fact)
+        public ActionResult Edit([Bind(Include = "ID,Text,Author,Date,UpVote,Downvote")] Fact fact)
         {
             if (ModelState.IsValid)
             {
