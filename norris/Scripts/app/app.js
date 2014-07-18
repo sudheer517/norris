@@ -9,7 +9,7 @@ app.controller('FactController', ['$http','$scope', function ($http,$scope) {
         fact.Text = data[0].Text;
         fact.Author = data[0].Author;
         fact.Date = data[0].Date;
-        fact.Views = data[0].Views;
+        fact.Views = data[0].Views +1 ;
 
         $scope.chartConfig = {
             options: {

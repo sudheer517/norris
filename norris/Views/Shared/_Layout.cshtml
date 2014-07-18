@@ -12,6 +12,7 @@
     @Scripts.Render("~/Scripts/app/app.js")
     @Scripts.Render("http://code.highcharts.com/highcharts.js")
     @Scripts.Render("https://rawgit.com/pablojim/highcharts-ng/master/src/highcharts-ng.js")
+@Scripts.Render("~/Scripts/jquery.validate.js")
     @Scripts.Render("~/Scripts/GifLinks.min.js")
     @RenderSection("scripts", required: false)
 
@@ -25,11 +26,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Mit Suthar facts", "Index", "Home", new { area = "" }, new { @class = "navbar-brand giflink-to-be", data_src="http://tholman.com/giflinks/img/specialists.gif"} )
+                @Html.ActionLink("Mit Suthar facts", "Index", "Home", new { area = "" }, new { @class = "navbar-brand"} )
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Discussion", "index", "Discussions")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")

@@ -15,6 +15,9 @@
             <blockquote>
                 <p style="font-size:24px;" >{{comment.Text}}</p>
                 <footer> - {{comment.USER_EMAIL}}</footer>
+                    <p style="font-size:42px;" ng-model="factCtrl.fact.Text" class="giflink-to-be" data-src="http://tholman.com/giflinks/img/specialists.gif" >{{factCtrl.fact.Text}}</p>
+                    <footer ng-model="factCtrl.fact.Author"> - {{factCtrl.fact.Author}}</footer>
+                    @*<p style="font-size:10px;">Views:{{factCtrl.fact.Views}}</p>*@
                 </blockquote>
             </div>
         <form ng-submit="factCtrl.addnew()">
@@ -27,7 +30,7 @@
                 <highchart id="chart1" config="chartConfig" style="height:200px;"></highchart>
             </div>
             </div>
-           
+      
         </div>
     </div>
     
