@@ -4,8 +4,27 @@
 
 <div style="padding-top:25%;" id="norris_container" ng-app="norrisFacts">
 
+
+
+
+
+
     <div ng-controller="FactController as factCtrl">
-        <div class="row">
+        
+        <div id="suggest">
+            <p><a href="" ng-click="factCtrl.addForm()">Suggest Fact</a></p>
+        </div>
+
+        <div class="ng-hide" id="container1">
+            <form ng-submit="factCtrl.addFact()">
+                Suggest Fact:<input type="text" id="factText" ng-model="factCtrl.factText" />
+                Author:<input type="text" id="author" ng-model="factCtrl.author" />
+                Date:<input type="text" id="date" ng-model="factCtrl.date" />
+                <input type="submit" ng-click="" class="btn btn-small" />
+            </form>
+        </div>
+        
+        <div class="row" id="container2">
             <div class="col-md-8">
                 <blockquote>
             <p style="font-size:42px;">{{factCtrl.fact.Text}}</p>
@@ -13,16 +32,13 @@
         </blockquote>
         <div id="comments" ng-repeat="comment in factCtrl.comments">
             <blockquote>
-                <p style="font-size:24px;" >{{comment.Text}}</p>
+                        <p style="font-size:24px;">{{comment.Text}}</p>
                 <footer> - {{comment.USER_EMAIL}}</footer>
-                    <p style="font-size:42px;" ng-model="factCtrl.fact.Text" class="giflink-to-be" data-src="http://tholman.com/giflinks/img/specialists.gif" >{{factCtrl.fact.Text}}</p>
-                    <footer ng-model="factCtrl.fact.Author"> - {{factCtrl.fact.Author}}</footer>
-                    @*<p style="font-size:10px;">Views:{{factCtrl.fact.Views}}</p>*@
                 </blockquote>
             </div>
         <form ng-submit="factCtrl.addnew()">
-            <input type="text" id="commentText" ng-model="factCtrl.commentText"/>
-            <input type="submit" class="btn btn-small"/>
+                    Comment: <input type="text" id="commentText" ng-model="factCtrl.commentText" />
+                    <input type="submit" class="btn btn-small" />
         </form>
         <p><a href="" class="btn btn-primary btn-lg" ng-click="factCtrl.nextFact()">Show more &raquo;</a></p>
             </div>
@@ -30,7 +46,7 @@
                 <highchart id="chart1" config="chartConfig" style="height:200px;"></highchart>
             </div>
             </div>
-      
+           
         </div>
     </div>
     

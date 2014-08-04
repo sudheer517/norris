@@ -39,13 +39,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Iesi.Collections">
-      <HintPath>..\packages\Iesi.Collections.3.2.0.1001\lib\Net35\Iesi.Collections.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="NHibernate">
-      <HintPath>..\packages\NHibernate.3.3.3.4001\lib\Net35\NHibernate.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -165,20 +159,17 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\DiscussionPostsController.cs" />
-    <Compile Include="Controllers\DiscussionsController.cs" />
     <Compile Include="Controllers\comment.cs" />
     <Compile Include="Controllers\CommentsController.cs" />
     <Compile Include="Controllers\DefaultConnection.cs" />
     <Compile Include="Controllers\FactsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Filters\MyValidateAntiForgeryTokenAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201407181137375_init.cs" />
-    <Compile Include="Migrations\201407181137375_init.Designer.cs">
-      <DependentUpon>201407181137375_init.cs</DependentUpon>
+    <Compile Include="Migrations\201407141124072_init.cs" />
+    <Compile Include="Migrations\201407141124072_init.Designer.cs">
+      <DependentUpon>201407141124072_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -558,20 +549,9 @@
     <Content Include="Views\Facts\Edit.cshtml" />
     <Content Include="Views\Facts\Index.cshtml" />
     <Content Include="Views\Comments\Index.cshtml" />
-    <Content Include="Views\Discussions\Create.cshtml" />
-    <Content Include="Views\Discussions\Delete.cshtml" />
-    <Content Include="Views\Discussions\Details.cshtml" />
-    <Content Include="Views\Discussions\Edit.cshtml" />
-    <Content Include="Views\Discussions\Index.cshtml" />
-    <Content Include="Views\DiscussionPosts\Create.cshtml" />
-    <Content Include="Views\DiscussionPosts\Delete.cshtml" />
-    <Content Include="Views\DiscussionPosts\Details.cshtml" />
-    <Content Include="Views\DiscussionPosts\Edit.cshtml" />
-    <Content Include="Views\DiscussionPosts\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\AntiForgeryExtension\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -581,8 +561,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201407181137375_init.resx">
-      <DependentUpon>201407181137375_init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201407141124072_init.resx">
+      <DependentUpon>201407141124072_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
